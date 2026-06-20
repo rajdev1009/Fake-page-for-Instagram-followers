@@ -6,14 +6,13 @@
 <title>Raj — Social Hub</title>
 <meta name="description" content="Follow along, then explore what I've built." />
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<!-- Tailwind (CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
+  // Sirf colors aur fonts ke liye Tailwind (Animations yahan se hata diye hain safety ke liye)
   tailwind.config = {
     theme: {
       extend: {
@@ -28,37 +27,9 @@
         fontFamily: {
           display: ['"Plus Jakarta Sans"', 'sans-serif'],
           body: ['"Inter"', 'sans-serif'],
-        },
-        keyframes: {
-          fadeInUp: {
-            '0%':   { opacity: 0, transform: 'translateY(15px)' },
-            '100%': { opacity: 1, transform: 'translateY(0)' },
-          },
-          ringSpin: {
-            '0%':   { transform: 'rotate(0deg)' },
-            '100%': { transform: 'rotate(360deg)' },
-          },
-          popIn: {
-            '0%':   { opacity: 0, transform: 'scale(0.96)' },
-            '100%': { opacity: 1, transform: 'scale(1)' },
-          },
-          pulseGlow: {
-            '0%': { box-shadow: '0 0 0 0 rgba(0, 149, 246, 0.4)' },
-            '70%': { box-shadow: '0 0 0 15px rgba(0, 149, 246, 0)' },
-            '100%': { box-shadow: '0 0 0 0 rgba(0, 149, 246, 0)' }
-          },
-          shimmer: {
-            '100%': { transform: 'translateX(100%)' }
-          }
-        },
-        animation: {
-          fadeInUp: 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-          ringSpin: 'ringSpin 9s linear infinite',
-          popIn: 'popIn 0.5s ease forwards',
-          pulseGlow: 'pulseGlow 1.5s ease-out 1',
-        },
-      },
-    },
+        }
+      }
+    }
   };
 </script>
 
@@ -75,7 +46,48 @@
     background: conic-gradient(from 180deg, #0095F6, #1B1F3B, #0095F6);
   }
 
-  /* Shimmer effect for Continue button */
+  /* =========================================
+     PURE CSS ANIMATIONS (Yeh kabhi fail nahi honge)
+     ========================================= */
+  
+  @keyframes customFadeInUp {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .anim-fade-up {
+    opacity: 0;
+    animation: customFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes customRingSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .anim-spin {
+    animation: customRingSpin 9s linear infinite;
+  }
+
+  @keyframes customPulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(0, 149, 246, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 149, 246, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 149, 246, 0); }
+  }
+  .anim-pulse {
+    animation: customPulseGlow 1.5s ease-out 1;
+  }
+
+  @keyframes customPopIn {
+    0% { opacity: 0; transform: scale(0.96); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  .anim-pop {
+    opacity: 0;
+    animation: customPopIn 0.5s ease forwards;
+  }
+
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
+  }
   .btn-shimmer::after {
     content: '';
     position: absolute;
@@ -84,6 +96,8 @@
     transform: translateX(-100%);
     animation: shimmer 2s infinite;
   }
+
+  /* ========================================= */
 
   /* Continue button states */
   #continueBtn {
@@ -136,15 +150,13 @@
 
 <body class="bg-surface text-ink antialiased min-h-screen relative overflow-x-hidden">
 
-  <!-- Soft decorative background blobs -->
   <div class="pointer-events-none fixed -top-24 -left-20 w-72 h-72 rounded-full bg-accent/10 blur-3xl"></div>
   <div class="pointer-events-none fixed top-1/3 -right-24 w-80 h-80 rounded-full bg-indigo-200/30 blur-3xl"></div>
   <div class="pointer-events-none fixed bottom-0 left-1/4 w-72 h-72 rounded-full bg-sky-100/40 blur-3xl"></div>
 
   <main class="relative z-10 mx-auto w-full max-w-[440px] px-5 py-10 sm:py-16">
 
-    <!-- Quick Links (Page Load Entrance: Staggered) -->
-    <div class="mb-7 opacity-0 animate-fadeInUp" style="animation-delay: 0.1s;">
+    <div class="mb-7 anim-fade-up" style="animation-delay: 0.1s;">
       <p class="text-center text-[11px] text-muted leading-relaxed mb-3 max-w-[320px] mx-auto">
         Tap an icon to open that profile directly — feel free to look around or follow there too.
         To unlock the projects below, complete the steps inside the card.
@@ -174,23 +186,19 @@
       </div>
     </div>
 
-    <!-- Profile Card (Hover Lift & Shadow) -->
     <section class="relative bg-white rounded-[28px] shadow-[0_20px_40px_-15px_rgba(18,18,18,0.08)] border border-line px-6 py-9 sm:px-8 sm:py-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(18,18,18,0.15)] overflow-hidden">
       
-      <!-- Step Progress Bar -->
       <div class="absolute top-0 left-0 h-1.5 bg-[#25D366] transition-all duration-700 ease-out" id="progressBar" style="width: 0%;"></div>
 
-      <!-- Avatar -->
-      <div class="flex justify-center mb-5 opacity-0 animate-fadeInUp" style="animation-delay: 0.2s;">
-        <div class="avatar-ring animate-ringSpin w-[104px] h-[104px] rounded-full p-[3px] animate-pulseGlow">
+      <div class="flex justify-center mb-5 anim-fade-up" style="animation-delay: 0.2s;">
+        <div class="avatar-ring anim-spin w-[104px] h-[104px] rounded-full p-[3px] anim-pulse">
           <div class="w-full h-full rounded-full bg-white p-[3px]">
             <img src="https://iili.io/CzE7YCv.webp" alt="Raj profile photo" class="w-full h-full rounded-full object-cover" />
           </div>
         </div>
       </div>
 
-      <!-- Identity -->
-      <div class="text-center opacity-0 animate-fadeInUp" style="animation-delay: 0.3s;">
+      <div class="text-center anim-fade-up" style="animation-delay: 0.3s;">
         <h1 class="font-display text-xl font-extrabold tracking-tight">Raj</h1>
         <p class="text-sm text-muted mt-0.5">@raj.codes</p>
 
@@ -198,7 +206,6 @@
           Follow both my Instagram pages below — new builds, behind-the-scenes, and AI experiments land there first.
         </p>
 
-        <!-- Topic pills -->
         <div class="flex flex-wrap items-center justify-center gap-2 mt-5">
           <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-accent/10 text-accentDeep">Web Apps</span>
           <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-accent/10 text-accentDeep">AI Tools</span>
@@ -206,10 +213,8 @@
         </div>
       </div>
 
-      <!-- Actions (Now only 2 steps) -->
-      <div class="mt-8 opacity-0 animate-fadeInUp" style="animation-delay: 0.4s;">
+      <div class="mt-8 anim-fade-up" style="animation-delay: 0.4s;">
 
-        <!-- Step 1 -->
         <button id="followBtn1" class="w-full flex items-center justify-center gap-2 rounded-full bg-accent hover:bg-accentDeep text-white font-display font-semibold text-[15px] py-4 shadow-lg shadow-accent/30 transition-all duration-300 active:scale-[0.98] disabled:opacity-90 disabled:cursor-not-allowed">
           <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="6" width="18" height="14" rx="3"></rect>
@@ -220,8 +225,7 @@
         </button>
         <p class="text-[11px] text-muted text-center mt-1.5">Step 1 of 2</p>
 
-        <!-- Circular Countdown -->
-        <div id="countdownWrap" class="hidden flex flex-col items-center mt-4 mb-2 animate-popIn">
+        <div id="countdownWrap" class="hidden flex flex-col items-center mt-4 mb-2 anim-pop">
           <div class="relative w-12 h-12">
             <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
               <circle cx="50" cy="50" r="45" fill="none" stroke="#EFEFEF" stroke-width="6"></circle>
@@ -232,7 +236,6 @@
           <p class="text-[11px] text-muted text-center mt-2">Next account unlocks soon</p>
         </div>
 
-        <!-- Step 2 -->
         <div id="followStep2" class="hidden mt-3">
           <button id="followBtn2" class="w-full flex items-center justify-center gap-2 rounded-full bg-accent hover:bg-accentDeep text-white font-display font-semibold text-[15px] py-4 shadow-lg shadow-accent/30 transition-all duration-300 active:scale-[0.98] disabled:opacity-90 disabled:cursor-not-allowed">
             <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -256,7 +259,6 @@
       </div>
     </section>
 
-    <!-- Reveal: Projects -->
     <section id="projectsSection" class="mt-0">
       <div class="pt-8">
         <p class="text-xs font-semibold tracking-[0.16em] text-accentDeep text-center uppercase">Projects & Links</p>
@@ -265,7 +267,6 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-7">
 
-          <!-- Project 1: Movie Website -->
           <a href="https://artistic-connie-rajdev1-a6524cf6.koyeb.app/index.html" target="_blank" rel="noopener noreferrer" class="project-item block bg-white rounded-3xl border border-line shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 p-5 group">
             <div class="w-11 h-11 rounded-2xl bg-ink flex items-center justify-center mb-4">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -279,7 +280,6 @@
             </span>
           </a>
 
-          <!-- Project 2: Raj AI -->
           <a href="https://teacher-ai-studio.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-item block bg-white rounded-3xl border border-line shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 p-5 group">
             <div class="w-11 h-11 rounded-2xl bg-accent flex items-center justify-center mb-4">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -293,7 +293,6 @@
             </span>
           </a>
 
-          <!-- Project 3: Telegram Group -->
           <a href="https://t.me/+u4cmm3JmIrFlNzZl" target="_blank" rel="noopener noreferrer" class="project-item block bg-white rounded-3xl border border-line shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 p-5 group sm:col-span-2 md:col-span-1">
             <div class="w-11 h-11 rounded-2xl bg-[#229ED9] flex items-center justify-center mb-4">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -376,7 +375,7 @@
           clearInterval(timer);
           countdownWrap.classList.add('hidden');
           followStep2.classList.remove('hidden');
-          followStep2.classList.add('animate-popIn');
+          followStep2.classList.add('anim-pop');
           helperText.textContent = 'Now follow the second account to unlock access';
         }
       }, 1000);
@@ -400,7 +399,7 @@
       continueBtn.disabled = false;
       continueBtn.setAttribute('aria-disabled', 'false');
       continueBtn.classList.remove('is-disabled');
-      continueBtn.classList.add('is-active', 'btn-shimmer', 'animate-popIn');
+      continueBtn.classList.add('is-active', 'btn-shimmer', 'anim-pop');
 
       helperText.style.opacity = 0;
       setTimeout(() => {
