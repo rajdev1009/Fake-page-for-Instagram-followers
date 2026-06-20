@@ -119,6 +119,50 @@
 
   <main class="relative z-10 mx-auto w-full max-w-[440px] px-5 py-10 sm:py-16">
 
+    <!-- Quick Links: direct profile shortcuts (no verification needed here) -->
+    <div class="mb-7">
+      <p class="text-center text-[11px] text-muted leading-relaxed mb-3 max-w-[320px] mx-auto">
+        Tap an icon to open that profile directly — feel free to look around or follow there too.
+        To unlock the projects below, complete the steps inside the card.
+      </p>
+      <div class="flex items-center justify-center gap-2 flex-wrap">
+        <a href="https://www.instagram.com/itz_dminem_official43?igsh=MTZpNGMwOGwwMWl5dA==" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-1.5 bg-white border border-line rounded-full pl-2 pr-3 py-1.5 shadow-sm hover:shadow-md transition-shadow">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center" style="background:conic-gradient(from 180deg,#0095F6,#1B1F3B,#0095F6)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="6" width="18" height="14" rx="3"></rect>
+              <path d="M8 6l1.6-2.4A1.5 1.5 0 0 1 10.85 3h2.3a1.5 1.5 0 0 1 1.25.6L16 6"></path>
+              <circle cx="12" cy="13" r="3.5"></circle>
+            </svg>
+          </span>
+          <span class="text-xs font-medium text-ink">@itz_dminem_official43</span>
+        </a>
+
+        <a href="https://www.instagram.com/_raj_dev_1?igsh=cWh2cXBnNzRhamlr" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-1.5 bg-white border border-line rounded-full pl-2 pr-3 py-1.5 shadow-sm hover:shadow-md transition-shadow">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center" style="background:conic-gradient(from 180deg,#0095F6,#1B1F3B,#0095F6)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="6" width="18" height="14" rx="3"></rect>
+              <path d="M8 6l1.6-2.4A1.5 1.5 0 0 1 10.85 3h2.3a1.5 1.5 0 0 1 1.25.6L16 6"></path>
+              <circle cx="12" cy="13" r="3.5"></circle>
+            </svg>
+          </span>
+          <span class="text-xs font-medium text-ink">@_raj_dev_1</span>
+        </a>
+
+        <a href="https://t.me/raj_dev_01" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-1.5 bg-white border border-line rounded-full pl-2 pr-3 py-1.5 shadow-sm hover:shadow-md transition-shadow">
+          <span class="w-6 h-6 rounded-full bg-[#229ED9] flex items-center justify-center">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2 11 13"></path>
+              <path d="M22 2 15 22l-4-9-9-4 20-7Z"></path>
+            </svg>
+          </span>
+          <span class="text-xs font-medium text-ink">@raj_dev_01</span>
+        </a>
+      </div>
+    </div>
+
     <!-- Profile Card -->
     <section class="bg-white rounded-[28px] shadow-[0_20px_50px_-20px_rgba(18,18,18,0.15)] border border-line px-6 py-9 sm:px-8 sm:py-10">
 
@@ -161,7 +205,7 @@
           </svg>
           <span>Follow @itz_dminem_official43</span>
         </button>
-        <p class="text-[11px] text-muted text-center mt-1.5">Step 1 of 2</p>
+        <p class="text-[11px] text-muted text-center mt-1.5">Step 1 of 4</p>
 
         <!-- Countdown between steps -->
         <p id="countdownWrap" class="hidden text-xs text-muted text-center mt-3">
@@ -179,7 +223,33 @@
             </svg>
             <span>Follow @_raj_dev_1</span>
           </button>
-          <p class="text-[11px] text-muted text-center mt-1.5">Step 2 of 2</p>
+          <p class="text-[11px] text-muted text-center mt-1.5">Step 2 of 4</p>
+        </div>
+
+        <!-- Step 3 & 4 -->
+        <div id="followStep34" class="hidden mt-3 space-y-3">
+          <div>
+            <button id="followBtn3"
+              class="w-full flex items-center justify-center gap-2 rounded-full bg-[#229ED9] hover:bg-[#1c87bd] text-white font-display font-semibold text-[15px] py-4 shadow-lg shadow-[#229ED9]/30 transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 2 11 13"></path>
+                <path d="M22 2 15 22l-4-9-9-4 20-7Z"></path>
+              </svg>
+              <span>Join Telegram Group</span>
+            </button>
+            <p class="text-[11px] text-muted text-center mt-1.5">Step 3 of 4</p>
+          </div>
+
+          <div>
+            <button id="followBtn4"
+              class="w-full flex items-center justify-center gap-2 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] text-white font-display font-semibold text-[15px] py-4 shadow-lg shadow-[#25D366]/30 transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+              <span>Join WhatsApp Group</span>
+            </button>
+            <p class="text-[11px] text-muted text-center mt-1.5">Step 4 of 4</p>
+          </div>
         </div>
 
         <button id="continueBtn" disabled aria-disabled="true"
@@ -191,7 +261,7 @@
         </button>
 
         <p id="helperText" class="text-xs text-muted text-center mt-3">
-          Follow both accounts to unlock the projects below
+          Complete all 4 steps to unlock the projects below
         </p>
       </div>
     </section>
@@ -250,11 +320,16 @@
   <script>
     const IG_URL_1 = "https://www.instagram.com/itz_dminem_official43?igsh=MTZpNGMwOGwwMWl5dA==";
     const IG_URL_2 = "https://www.instagram.com/_raj_dev_1?igsh=cWh2cXBnNzRhamlr";
+    const TG_GROUP_URL = "https://t.me/+u4cmm3JmIrFlNzZl";
+    const WA_GROUP_URL = "https://chat.whatsapp.com/CO1w23Z2vYF0vksMEcxNXx?s=cl&p=a&mlu=3&amv=1";
     const WAIT_SECONDS = 30;
 
     const followBtn1 = document.getElementById('followBtn1');
     const followBtn2 = document.getElementById('followBtn2');
+    const followBtn3 = document.getElementById('followBtn3');
+    const followBtn4 = document.getElementById('followBtn4');
     const followStep2 = document.getElementById('followStep2');
+    const followStep34 = document.getElementById('followStep34');
     const countdownWrap = document.getElementById('countdownWrap');
     const countdownNum = document.getElementById('countdownNum');
     const continueBtn = document.getElementById('continueBtn');
@@ -263,6 +338,8 @@
 
     let step1Done = false;
     let step2Done = false;
+    let step3Done = false;
+    let step4Done = false;
 
     followBtn1.addEventListener('click', () => {
       window.open(IG_URL_1, '_blank', 'noopener,noreferrer');
@@ -295,8 +372,32 @@
       step2Done = true;
 
       followBtn2.disabled = true;
-      activateContinue();
+      followStep34.classList.remove('hidden');
+      followStep34.classList.add('animate-popIn');
+      helperText.textContent = 'Almost there — join the Telegram & WhatsApp groups too';
     });
+
+    followBtn3.addEventListener('click', () => {
+      window.open(TG_GROUP_URL, '_blank', 'noopener,noreferrer');
+      if (step3Done) return;
+      step3Done = true;
+      followBtn3.disabled = true;
+      checkAllSteps();
+    });
+
+    followBtn4.addEventListener('click', () => {
+      window.open(WA_GROUP_URL, '_blank', 'noopener,noreferrer');
+      if (step4Done) return;
+      step4Done = true;
+      followBtn4.disabled = true;
+      checkAllSteps();
+    });
+
+    function checkAllSteps() {
+      if (step1Done && step2Done && step3Done && step4Done) {
+        activateContinue();
+      }
+    }
 
     function activateContinue() {
       continueBtn.disabled = false;
