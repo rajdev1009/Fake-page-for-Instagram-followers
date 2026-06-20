@@ -4,15 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Raj — Social Hub</title>
-<meta name="description" content="Follow along, then explore what I've built." />
+<meta name="description" content="Main Web Apps aur AI tools develop karta hoon. Mere projects explore karein." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-  // Sirf colors aur fonts ke liye Tailwind (Animations yahan se hata diye hain safety ke liye)
   tailwind.config = {
     theme: {
       extend: {
@@ -41,15 +40,11 @@
   body { font-family: 'Inter', sans-serif; }
   h1, h2, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
 
-  /* Avatar ring sweep */
   .avatar-ring {
     background: conic-gradient(from 180deg, #0095F6, #1B1F3B, #0095F6);
   }
 
-  /* =========================================
-     PURE CSS ANIMATIONS (Yeh kabhi fail nahi honge)
-     ========================================= */
-  
+  /* PURE CSS ANIMATIONS */
   @keyframes customFadeInUp {
     0% { opacity: 0; transform: translateY(15px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -97,54 +92,16 @@
     animation: shimmer 2s infinite;
   }
 
-  /* ========================================= */
-
-  /* Continue button states */
-  #continueBtn {
-    transition: all .35s ease;
-  }
-  #continueBtn.is-disabled {
-    background-color: #ECECEC;
-    color: #ABABAB;
-    cursor: not-allowed;
-    box-shadow: none;
-  }
-  #continueBtn.is-active {
-    background-color: #121212;
-    color: #FFFFFF;
-    cursor: pointer;
-    box-shadow: 0 10px 24px -8px rgba(18,18,18,0.35);
-  }
+  #continueBtn { transition: all .35s ease; }
+  #continueBtn.is-disabled { background-color: #ECECEC; color: #ABABAB; cursor: not-allowed; box-shadow: none; }
+  #continueBtn.is-active { background-color: #121212; color: #FFFFFF; cursor: pointer; box-shadow: 0 10px 24px -8px rgba(18,18,18,0.35); }
   #continueBtn.is-active:active { transform: scale(0.98); }
 
-  /* Project Reveal section expand */
-  #projectsSection {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height .8s cubic-bezier(.22,.61,.36,1), opacity .6s ease, margin-top .6s ease;
-  }
-  #projectsSection.is-open {
-    max-height: 2000px;
-    opacity: 1;
-  }
-
-  /* Staggered project cards */
-  .project-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .project-item.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* visible keyboard focus */
-  button:focus-visible, a:focus-visible {
-    outline: 2px solid #0095F6;
-    outline-offset: 3px;
-  }
+  #projectsSection { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .8s cubic-bezier(.22,.61,.36,1), opacity .6s ease, margin-top .6s ease; }
+  #projectsSection.is-open { max-height: 2000px; opacity: 1; }
+  
+  .project-item { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  .project-item.show { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 
@@ -158,30 +115,28 @@
 
     <div class="mb-7 anim-fade-up" style="animation-delay: 0.1s;">
       <p class="text-center text-[11px] text-muted leading-relaxed mb-3 max-w-[320px] mx-auto">
-        Tap an icon to open that profile directly — feel free to look around or follow there too.
-        To unlock the projects below, complete the steps inside the card.
+        Mere accounts yahan se direct visit karein.
       </p>
       <div class="flex items-center justify-center gap-2 flex-wrap">
         <a href="https://www.instagram.com/itz_dminem_official43?igsh=MTZpNGMwOGwwMWl5dA==" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-white border border-line rounded-full pl-2 pr-3 py-1.5 shadow-sm hover:shadow-md transition-shadow">
           <span class="w-6 h-6 rounded-full flex items-center justify-center" style="background:conic-gradient(from 180deg,#0095F6,#1B1F3B,#0095F6)">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="6" width="18" height="14" rx="3"></rect>
-              <path d="M8 6l1.6-2.4A1.5 1.5 0 0 1 10.85 3h2.3a1.5 1.5 0 0 1 1.25.6L16 6"></path>
-              <circle cx="12" cy="13" r="3.5"></circle>
-            </svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="3"></rect><path d="M8 6l1.6-2.4A1.5 1.5 0 0 1 10.85 3h2.3a1.5 1.5 0 0 1 1.25.6L16 6"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
           </span>
-          <span class="text-xs font-medium text-ink">@itz_dminem_official43</span>
+          <span class="text-xs font-medium text-ink">@itz_dminem</span>
         </a>
 
         <a href="https://www.instagram.com/_raj_dev_1?igsh=cWh2cXBnNzRhamlr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-white border border-line rounded-full pl-2 pr-3 py-1.5 shadow-sm hover:shadow-md transition-shadow">
           <span class="w-6 h-6 rounded-full flex items-center justify-center" style="background:conic-gradient(from 180deg,#0095F6,#1B1F3B,#0095F6)">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="6" width="18" height="14" rx="3"></rect>
-              <path d="M8 6l1.6-2.4A1.5 1.5 0 0 1 10.85 3h2.3a1.5 1.5 0 0 1 1.25.6L16 6"></path>
-              <circle cx="12" cy="13" r="3.5"></circle>
-            </svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="3"></rect><path d="M8 6l1.6-2.4A1.5 1.5 0 0 1 10.85 3h2.3a1.5 1.5 0 0 1 1.25.6L16 6"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
           </span>
           <span class="text-xs font-medium text-ink">@_raj_dev_1</span>
+        </a>
+
+        <a href="https://t.me/raj_dev_01" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-white border border-line rounded-full pl-2 pr-3 py-1.5 shadow-sm hover:shadow-md transition-shadow">
+          <span class="w-6 h-6 rounded-full bg-[#229ED9] flex items-center justify-center">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4 20-7Z"></path></svg>
+          </span>
+          <span class="text-xs font-medium text-ink">@raj_dev_01</span>
         </a>
       </div>
     </div>
@@ -199,32 +154,32 @@
       </div>
 
       <div class="text-center anim-fade-up" style="animation-delay: 0.3s;">
-        <h1 class="font-display text-xl font-extrabold tracking-tight">Raj</h1>
-        <p class="text-sm text-muted mt-0.5">@raj.codes</p>
-
-        <p class="font-body text-[15px] leading-relaxed text-ink/80 mt-4 max-w-[300px] mx-auto">
-          Follow both my Instagram pages below — new builds, behind-the-scenes, and AI experiments land there first.
+        <h1 class="font-display text-2xl font-extrabold tracking-tight">Raj</h1>
+        
+        <p class="font-body text-[14px] leading-relaxed text-ink/80 mt-4 max-w-[310px] mx-auto text-left sm:text-center">
+          Main Web Apps aur AI tools develop karta hoon. Ab tak maine fast movie websites aur natural AI assistants banaye hain. Future mein aise hi aur naye AI experiments aur tools aane wale hain.
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-2 mt-5">
           <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-accent/10 text-accentDeep">Web Apps</span>
           <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-accent/10 text-accentDeep">AI Tools</span>
-          <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-accent/10 text-accentDeep">UI / UX</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full bg-accent/10 text-accentDeep">Developer</span>
         </div>
       </div>
 
       <div class="mt-8 anim-fade-up" style="animation-delay: 0.4s;">
 
+        <p id="instructionText" class="text-[14px] text-ink font-bold text-center mb-3">
+          Pehle is par tap karein aur follow karein:
+        </p>
+
         <button id="followBtn1" class="w-full flex items-center justify-center gap-2 rounded-full bg-accent hover:bg-accentDeep text-white font-display font-semibold text-[15px] py-4 shadow-lg shadow-accent/30 transition-all duration-300 active:scale-[0.98] disabled:opacity-90 disabled:cursor-not-allowed">
           <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="6" width="18" height="14" rx="3"></rect>
-            <path d="M8 6l1.6-2.4A1.5 1.5 0 0 1 10.85 3h2.3a1.5 1.5 0 0 1 1.25.6L16 6"></path>
-            <circle cx="12" cy="13" r="3.5"></circle>
+            <rect x="3" y="6" width="18" height="14" rx="3"></rect><path d="M8 6l1.6-2.4A1.5 1.5 0 0 1 10.85 3h2.3a1.5 1.5 0 0 1 1.25.6L16 6"></path><circle cx="12" cy="13" r="3.5"></circle>
           </svg>
           <span class="btn-text">Follow @itz_dminem_official43</span>
         </button>
-        <p class="text-[11px] text-muted text-center mt-1.5">Step 1 of 2</p>
-
+        
         <div id="countdownWrap" class="hidden flex flex-col items-center mt-4 mb-2 anim-pop">
           <div class="relative w-12 h-12">
             <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
@@ -233,81 +188,67 @@
             </svg>
             <div class="absolute inset-0 flex items-center justify-center text-sm font-bold text-ink" id="countdownNum">30</div>
           </div>
-          <p class="text-[11px] text-muted text-center mt-2">Next account unlocks soon</p>
+          <p class="text-[11px] text-muted text-center mt-2">Checking validation...</p>
         </div>
 
         <div id="followStep2" class="hidden mt-3">
           <button id="followBtn2" class="w-full flex items-center justify-center gap-2 rounded-full bg-accent hover:bg-accentDeep text-white font-display font-semibold text-[15px] py-4 shadow-lg shadow-accent/30 transition-all duration-300 active:scale-[0.98] disabled:opacity-90 disabled:cursor-not-allowed">
             <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="6" width="18" height="14" rx="3"></rect>
-              <path d="M8 6l1.6-2.4A1.5 1.5 0 0 1 10.85 3h2.3a1.5 1.5 0 0 1 1.25.6L16 6"></path>
-              <circle cx="12" cy="13" r="3.5"></circle>
+              <rect x="3" y="6" width="18" height="14" rx="3"></rect><path d="M8 6l1.6-2.4A1.5 1.5 0 0 1 10.85 3h2.3a1.5 1.5 0 0 1 1.25.6L16 6"></path><circle cx="12" cy="13" r="3.5"></circle>
             </svg>
             <span class="btn-text">Follow @_raj_dev_1</span>
           </button>
-          <p class="text-[11px] text-muted text-center mt-1.5">Step 2 of 2</p>
         </div>
 
-        <button id="continueBtn" disabled aria-disabled="true" class="is-disabled w-full flex items-center justify-center gap-2 rounded-full font-display font-semibold text-[15px] py-4 mt-3 relative overflow-hidden">
+        <button id="continueBtn" disabled aria-disabled="true" class="is-disabled w-full flex items-center justify-center gap-2 rounded-full font-display font-semibold text-[15px] py-4 mt-4 relative overflow-hidden">
           <span>Continue to Explore</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
         </button>
 
-        <p id="helperText" class="text-xs text-muted text-center mt-3 transition-opacity duration-300">
-          Complete both steps to unlock the projects below
-        </p>
       </div>
     </section>
 
     <section id="projectsSection" class="mt-0">
       <div class="pt-8">
-        <p class="text-xs font-semibold tracking-[0.16em] text-accentDeep text-center uppercase">Projects & Links</p>
-        <h2 class="font-display text-2xl font-extrabold text-center mt-1">Explore & Join</h2>
-        <p class="text-sm text-muted text-center mt-2 max-w-[320px] mx-auto">Check out my recent builds and join the community.</p>
+        <h2 class="font-display text-2xl font-extrabold text-center mt-1">My Projects & Links</h2>
+        <p class="text-sm text-muted text-center mt-2 max-w-[320px] mx-auto">Explore the tools I've built and join the community.</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-7">
 
           <a href="https://artistic-connie-rajdev1-a6524cf6.koyeb.app/index.html" target="_blank" rel="noopener noreferrer" class="project-item block bg-white rounded-3xl border border-line shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 p-5 group">
             <div class="w-11 h-11 rounded-2xl bg-ink flex items-center justify-center mb-4">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 9h18M8 5v4M16 5v4"></path>
-              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 9h18M8 5v4M16 5v4"></path></svg>
             </div>
             <h3 class="font-display font-bold text-[15px]">Movie Website</h3>
-            <p class="text-sm text-muted mt-1.5 leading-relaxed">A fast, clean movie discovery site — browse, search, and explore titles without the clutter.</p>
+            <p class="text-sm text-muted mt-1.5 leading-relaxed">Ek fast aur clean website jahan aap bina kisi annoying ads ke movies search aur explore kar sakte hain.</p>
             <span class="inline-flex items-center gap-1 text-sm font-semibold text-accentDeep mt-4 group-hover:gap-2 transition-all">
-              Visit project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              Visit Website <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
             </span>
           </a>
 
           <a href="https://teacher-ai-studio.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-item block bg-white rounded-3xl border border-line shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 p-5 group">
             <div class="w-11 h-11 rounded-2xl bg-accent flex items-center justify-center mb-4">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3v2M12 19v2M5 12H3M21 12h-2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"></path><rect x="8" y="8" width="8" height="8" rx="2"></rect>
-              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"></path><rect x="8" y="8" width="8" height="8" rx="2"></rect></svg>
             </div>
             <h3 class="font-display font-bold text-[15px]">Raj AI</h3>
-            <p class="text-sm text-muted mt-1.5 leading-relaxed">An AI assistant built for natural, fast conversations — ask it anything and see how it responds.</p>
+            <p class="text-sm text-muted mt-1.5 leading-relaxed">Ek smart AI assistant jisse aap kuch bhi sawaal pooch sakte hain. Yeh kaafi fast response deta hai.</p>
             <span class="inline-flex items-center gap-1 text-sm font-semibold text-accentDeep mt-4 group-hover:gap-2 transition-all">
-              Visit project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              Try Raj AI <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
             </span>
           </a>
 
           <a href="https://t.me/+u4cmm3JmIrFlNzZl" target="_blank" rel="noopener noreferrer" class="project-item block bg-white rounded-3xl border border-line shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 p-5 group sm:col-span-2 md:col-span-1">
             <div class="w-11 h-11 rounded-2xl bg-[#229ED9] flex items-center justify-center mb-4">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4 20-7Z"></path>
-              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4 20-7Z"></path></svg>
             </div>
             <h3 class="font-display font-bold text-[15px]">Telegram Community</h3>
-            <p class="text-sm text-muted mt-1.5 leading-relaxed">Join my official Telegram group for early updates, code snippets, and direct discussions.</p>
+            <p class="text-sm text-muted mt-1.5 leading-relaxed">Mera official Telegram group join karein. Yahan main naye updates aur project links sabse pehle share karta hoon.</p>
             <span class="inline-flex items-center gap-1 text-sm font-semibold text-[#229ED9] mt-4 group-hover:gap-2 transition-all">
               Join Group <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
             </span>
           </a>
 
         </div>
-        <p class="text-xs text-muted text-center mt-10 mb-2">Thanks for stopping by — see you on Instagram.</p>
       </div>
     </section>
 
@@ -326,13 +267,13 @@
     const countdownRing = document.getElementById('countdownRing');
     
     const continueBtn = document.getElementById('continueBtn');
-    const helperText = document.getElementById('helperText');
+    const instructionText = document.getElementById('instructionText');
     const projectsSection = document.getElementById('projectsSection');
     const progressBar = document.getElementById('progressBar');
 
     let stepsCompleted = 0;
     
-    // Morph button into green checkmark state
+    // Morph button function
     function morphToCompleted(btn) {
       btn.disabled = true;
       btn.style.backgroundColor = '#25D366'; // Green
@@ -342,11 +283,9 @@
       const icon = btn.querySelector('.btn-icon');
       const text = btn.querySelector('.btn-text');
       
-      // Morph SVG to Checkmark
       icon.innerHTML = `<polyline points="20 6 9 17 4 12"></polyline>`;
-      text.innerText = 'Completed';
+      text.innerText = 'Completed ✓';
       
-      // Update Progress Bar (Now 50% per step)
       stepsCompleted++;
       progressBar.style.width = (stepsCompleted * 50) + '%';
     }
@@ -356,7 +295,8 @@
       if (followBtn1.disabled) return;
       
       morphToCompleted(followBtn1);
-      helperText.textContent = 'Thanks! Unlocking the next account…';
+      instructionText.textContent = "Great! Validation ka wait karein...";
+      instructionText.classList.add("text-accentDeep");
 
       let secondsLeft = WAIT_SECONDS;
       const totalDash = 283; 
@@ -376,7 +316,10 @@
           countdownWrap.classList.add('hidden');
           followStep2.classList.remove('hidden');
           followStep2.classList.add('anim-pop');
-          helperText.textContent = 'Now follow the second account to unlock access';
+          
+          // Step 1 complete hone ke baad ki instructions
+          instructionText.textContent = "Ab Step 2: Niche isko follow karein, fir Explore ka button khulega:";
+          instructionText.classList.remove("text-accentDeep");
         }
       }, 1000);
     });
@@ -391,6 +334,9 @@
 
     function checkAllSteps() {
       if (stepsCompleted === 2) {
+        // Dono steps hone ke baad instruction update
+        instructionText.textContent = "Dono steps done! Ab niche Continue par click karke websites access karein.";
+        instructionText.style.color = '#25D366'; // Green success text
         activateContinue();
       }
     }
@@ -400,12 +346,6 @@
       continueBtn.setAttribute('aria-disabled', 'false');
       continueBtn.classList.remove('is-disabled');
       continueBtn.classList.add('is-active', 'btn-shimmer', 'anim-pop');
-
-      helperText.style.opacity = 0;
-      setTimeout(() => {
-        helperText.innerHTML = '<span class="text-accentDeep font-medium">Access unlocked — continue below ✓</span>';
-        helperText.style.opacity = 1;
-      }, 300);
     }
 
     continueBtn.addEventListener('click', () => {
